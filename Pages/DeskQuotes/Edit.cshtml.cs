@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesMegaDesk;
 using RazorPagesMegaDesk.Data;
 
-namespace RazorPagesMegaDesk.Pages.Desks
+namespace RazorPagesMegaDesk.Pages.DeskQuotes
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace RazorPagesMegaDesk.Pages.Desks
         }
 
         [BindProperty]
-        public Desk Desk { get; set; }
+        public DeskQuote DeskQuote { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,16 @@ namespace RazorPagesMegaDesk.Pages.Desks
                 return NotFound();
             }
 
-            Desk = await _context.Desk
-                .Include(d => d.SurfaceMaterial).FirstOrDefaultAsync(m => m.DeskId == id);
+            DeskQuote = await _context.DeskQuote
+                .Include(d => d.DeliveryType)
+                .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
 
-            if (Desk == null)
+            if (DeskQuote == null)
             {
                 return NotFound();
             }
-           ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialId");
+           ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryId");
+           ViewData["DeskId"] = new SelectList(_context.Desk, "DeskId", "DeskId");
             return Page();
         }
 
@@ -50,7 +52,7 @@ namespace RazorPagesMegaDesk.Pages.Desks
                 return Page();
             }
 
-            _context.Attach(Desk).State = EntityState.Modified;
+            _context.Attach(DeskQuote).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +60,7 @@ namespace RazorPagesMegaDesk.Pages.Desks
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DeskExists(Desk.DeskId))
+                if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
                 {
                     return NotFound();
                 }
@@ -71,9 +73,9 @@ namespace RazorPagesMegaDesk.Pages.Desks
             return RedirectToPage("./Index");
         }
 
-        private bool DeskExists(int id)
+        private bool DeskQuoteExists(int id)
         {
-            return _context.Desk.Any(e => e.DeskId == id);
+            return _context.DeskQuote.Any(e => e.DeskQuoteId == id);
         }
     }
 }

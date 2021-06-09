@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesMegaDesk;
 using RazorPagesMegaDesk.Data;
 
-namespace RazorPagesMegaDesk.Pages.Desks
+namespace RazorPagesMegaDesk.Pages.DeskQuotes
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace RazorPagesMegaDesk.Pages.Desks
         }
 
         [BindProperty]
-        public Desk Desk { get; set; }
+        public DeskQuote DeskQuote { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,10 +29,11 @@ namespace RazorPagesMegaDesk.Pages.Desks
                 return NotFound();
             }
 
-            Desk = await _context.Desk
-                .Include(d => d.SurfaceMaterial).FirstOrDefaultAsync(m => m.DeskId == id);
+            DeskQuote = await _context.DeskQuote
+                .Include(d => d.DeliveryType)
+                .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
 
-            if (Desk == null)
+            if (DeskQuote == null)
             {
                 return NotFound();
             }
@@ -46,11 +47,11 @@ namespace RazorPagesMegaDesk.Pages.Desks
                 return NotFound();
             }
 
-            Desk = await _context.Desk.FindAsync(id);
+            DeskQuote = await _context.DeskQuote.FindAsync(id);
 
-            if (Desk != null)
+            if (DeskQuote != null)
             {
-                _context.Desk.Remove(Desk);
+                _context.DeskQuote.Remove(DeskQuote);
                 await _context.SaveChangesAsync();
             }
 

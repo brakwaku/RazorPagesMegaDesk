@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesMegaDesk;
 using RazorPagesMegaDesk.Data;
 
-namespace RazorPagesMegaDesk.Pages.Desks
+namespace RazorPagesMegaDesk.Pages.DeskQuotes
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,13 @@ namespace RazorPagesMegaDesk.Pages.Desks
             _context = context;
         }
 
-        public IList<Desk> Desk { get;set; }
+        public IList<DeskQuote> DeskQuote { get;set; }
 
         public async Task OnGetAsync()
         {
-            Desk = await _context.Desk
-                .Include(d => d.SurfaceMaterial).ToListAsync();
+            DeskQuote = await _context.DeskQuote
+                .Include(d => d.DeliveryType)
+                .Include(d => d.Desk).ToListAsync();
         }
     }
 }

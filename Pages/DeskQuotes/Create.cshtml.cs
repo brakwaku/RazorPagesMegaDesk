@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPagesMegaDesk;
 using RazorPagesMegaDesk.Data;
 
-namespace RazorPagesMegaDesk.Pages.Desks
+namespace RazorPagesMegaDesk.Pages.DeskQuotes
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,13 @@ namespace RazorPagesMegaDesk.Pages.Desks
 
         public IActionResult OnGet()
         {
-        ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialId");
+        ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryId");
+        ViewData["DeskId"] = new SelectList(_context.Desk, "DeskId", "DeskId");
             return Page();
         }
 
         [BindProperty]
-        public Desk Desk { get; set; }
+        public DeskQuote DeskQuote { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +37,7 @@ namespace RazorPagesMegaDesk.Pages.Desks
                 return Page();
             }
 
-            _context.Desk.Add(Desk);
+            _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

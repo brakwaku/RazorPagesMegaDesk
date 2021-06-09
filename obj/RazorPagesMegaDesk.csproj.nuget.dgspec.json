@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {}
+    "C:\\Users\\Jamal\\Source\\Repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {
+    "C:\\Users\\Jamal\\Source\\Repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
+        "projectUniqueName": "C:\\Users\\Jamal\\Source\\Repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
         "projectName": "RazorPagesMegaDesk",
-        "projectPath": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
-        "packagesPath": "C:\\Users\\dyj0183\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\obj\\",
+        "projectPath": "C:\\Users\\Jamal\\Source\\Repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
+        "packagesPath": "C:\\Users\\Jamal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jamal\\Source\\Repos\\RazorPagesMegaDesk\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dyj0183\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jamal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "\\\\idrive\\tech\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

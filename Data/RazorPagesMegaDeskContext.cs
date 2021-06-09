@@ -15,5 +15,8 @@ namespace RazorPagesMegaDesk.Data
         }
 
         public DbSet<RazorPagesMegaDesk.Desk> Desk { get; set; }
+        public DbSet<RazorPagesMegaDesk.Delivery> Delivery { get; set; }
+        public DbSet<RazorPagesMegaDesk.DesktopMaterial> DesktopMaterial { get; set; }
+        public DbSet<RazorPagesMegaDesk.DeskQuote> DeskQuote { get; set; }
     }
 }
