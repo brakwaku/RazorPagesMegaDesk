@@ -8,24 +8,31 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/Users/brakwakujr/.nuget/packages/": {}
+    "C:\\Users\\dyj0183\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brakwakujr/Container/School/Spring 2021/CIT 365 - .NET Software Development/RazorPagesMegaDesk/RazorPagesMegaDesk.csproj",
+      "projectUniqueName": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
       "projectName": "RazorPagesMegaDesk",
-      "projectPath": "/Users/brakwakujr/Container/School/Spring 2021/CIT 365 - .NET Software Development/RazorPagesMegaDesk/RazorPagesMegaDesk.csproj",
-      "packagesPath": "/Users/brakwakujr/.nuget/packages/",
-      "outputPath": "/Users/brakwakujr/Container/School/Spring 2021/CIT 365 - .NET Software Development/RazorPagesMegaDesk/obj/",
+      "projectPath": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
+      "packagesPath": "C:\\Users\\dyj0183\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/brakwakujr/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\dyj0183\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "\\\\idrive\\tech\\nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -37,3 +37,43 @@
 /Users/brakwakujr/Container/School/Spring 2021/CIT 365 - .NET Software Development/RazorPagesMegaDesk/obj/Debug/net5.0/RazorPagesMegaDesk.pdb
 /Users/brakwakujr/Container/School/Spring 2021/CIT 365 - .NET Software Development/RazorPagesMegaDesk/obj/Debug/net5.0/RazorPagesMegaDesk.genruntimeconfig.cache
 /Users/brakwakujr/Container/School/Spring 2021/CIT 365 - .NET Software Development/RazorPagesMegaDesk/obj/Debug/net5.0/RazorPagesMegaDesk.csproj.CopyComplete
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\appsettings.json
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.exe
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.deps.json
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.runtimeconfig.json
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.runtimeconfig.dev.json
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.dll
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\ref\RazorPagesMegaDesk.dll
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.pdb
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.Views.dll
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\bin\Debug\net5.0\RazorPagesMegaDesk.Views.pdb
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.csprojAssemblyReference.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.AssemblyInfoInputs.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.AssemblyInfo.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.csproj.CoreCompileInputs.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.RazorAssemblyInfo.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.RazorAssemblyInfo.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\staticwebassets\RazorPagesMegaDesk.StaticWebAssets.Manifest.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\staticwebassets\RazorPagesMegaDesk.StaticWebAssets.xml
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\scopedcss\bundle\RazorPagesMegaDesk.styles.css
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.TagHelpers.input.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.TagHelpers.output.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.RazorCoreGenerate.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.RazorTargetAssemblyInfo.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.RazorTargetAssemblyInfo.cs
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.Views.pdb
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.dll
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\ref\RazorPagesMegaDesk.dll
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.pdb
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.genruntimeconfig.cache
+C:\Users\dyj0183\Source\Repos\RazorPagesMegaDesk\obj\Debug\net5.0\RazorPagesMegaDesk.csproj.CopyComplete
