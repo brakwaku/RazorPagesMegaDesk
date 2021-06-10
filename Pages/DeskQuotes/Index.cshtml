@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Main Page</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -17,16 +17,25 @@
                 @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].DeliveryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk.Depth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk.Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk.NumberOfDrawers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk.SurfaceMaterial.DesktopMaterialName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].DeliveryType)
             </th>
             <th></th>
         </tr>
@@ -38,16 +47,25 @@
                 @Html.DisplayFor(modelItem => item.CustomerName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.DeliveryType.DeliveryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desk.Depth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desk.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desk.NumberOfDrawers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desk.SurfaceMaterial.DesktopMaterialName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.QuoteDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desk.DeskId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryType.DeliveryId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId">Edit</a> |
