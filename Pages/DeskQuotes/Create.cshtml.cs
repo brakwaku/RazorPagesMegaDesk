@@ -21,13 +21,17 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
 
         public IActionResult OnGet()
         {
-        ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryId");
-        ViewData["DeskId"] = new SelectList(_context.Desk, "DeskId", "DeskId");
+        ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryType");
+        ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialName");
+            //ViewData["DeskId"] = new SelectList(_context.Desk, "DeskId", "DeskId");
             return Page();
         }
 
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
+
+        [BindProperty]
+        public Desk Desk { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -37,6 +41,17 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
                 return Page();
             }
 
+            //add Desk to database
+            _context.Desk.Add(Desk);
+            await _context.SaveChangesAsync();
+
+            // add DeskQuote Dynamic Properties
+            DeskQuote.Desk = Desk;
+            DeskQuote.DeskId = Desk.DeskId;
+            DeskQuote.QuoteDate = DateTime.Now.ToString();
+            DeskQuote.TotalPrice = DeskQuote.GetQuotePrice(_context);
+
+            // add Desktop to database
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 

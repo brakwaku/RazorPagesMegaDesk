@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace RazorPagesMegaDesk
 {
@@ -33,13 +34,22 @@ namespace RazorPagesMegaDesk
         // properties
         public int DeskQuoteId { get; set; } // primary key for DeskQuote
         public int DeskId { get; set; } // this is the foreign key that points to Desk.cs
-        public string QuoteDate { get; set; } // set the type to string because we will convert dateTime to string later for a nicer format
+
+        [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
+
+        [Display(Name = "Quote Date")]
+        public string QuoteDate { get; set; } // set the type to string because we will convert dateTime to string later for a nicer format
+       
         public int DeliveryId { get; set; }
+
+        [Display(Name = "Total Price")]
         public decimal TotalPrice { get; set; }
 
         // navigation properties
         public Desk Desk { get; set; }
+
+        [Display(Name = "Delivery Type")]
         public Delivery DeliveryType { get; set; }
 
         // methods
@@ -174,19 +184,20 @@ namespace RazorPagesMegaDesk
         //}
 
         // get the total price for the specific quote
-        //public decimal GetQuotePrice()
-        //{
-        //    decimal totalPrice;
-        //    decimal surfaceArea = Desk.Depth * Desk.Width;
-        //    decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
-        //    decimal totalDrawerCost = Desk.NumberOfDrawers * DRAWER_COST;
-        //    decimal surfaceMaterialCost = GetMaterialCost();
+        public decimal GetQuotePrice(RazorPagesMegaDesk.Data.RazorPagesMegaDeskContext DataContext)
+        {
+            //decimal totalPrice;
+            //decimal surfaceArea = Desk.Depth * Desk.Width;
+            //decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
+            //decimal totalDrawerCost = Desk.NumberOfDrawers * DRAWER_COST;
+            //decimal surfaceMaterialCost = GetMaterialCost();
 
-        //    getRushOrderPrices(); // grab all the prices from the rushOrderPrices.txt file and save into _rushOrderPrices[,] 
-        //    decimal shippingCost = GetShippingCost();
+            //getRushOrderPrices(); // grab all the prices from the rushOrderPrices.txt file and save into _rushOrderPrices[,] 
+            //decimal shippingCost = GetShippingCost();
 
-        //    totalPrice = BASE_DESK_PRICE + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
-        //    return totalPrice;
-        //}
+            //totalPrice = BASE_DESK_PRICE + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
+            //return totalPrice;
+            return 0;
+        }
     }
 }

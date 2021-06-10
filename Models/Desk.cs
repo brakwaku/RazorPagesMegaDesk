@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,8 @@ namespace RazorPagesMegaDesk
         public int DeskId { get; set; }
         public decimal Width { get; set; }
         public decimal Depth { get; set; }
+
+        [Display(Name = "Number Of Drawers")]
         public decimal NumberOfDrawers { get; set; }
 
         public int DesktopMaterialId { get; set; }

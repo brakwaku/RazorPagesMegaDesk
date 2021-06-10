@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
+                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].TotalPrice)
@@ -35,10 +35,10 @@
 @foreach (var item in Model.DeskQuote) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.QuoteDate)
+                @Html.DisplayFor(modelItem => item.CustomerName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
+                @Html.DisplayFor(modelItem => item.QuoteDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TotalPrice)
