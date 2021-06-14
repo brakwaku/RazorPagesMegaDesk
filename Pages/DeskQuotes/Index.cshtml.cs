@@ -24,6 +24,7 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
         public async Task OnGetAsync()
         {
             DeskQuote = await _context.DeskQuote
+                .Include(d => d.Desk.SurfaceMaterial)
                 .Include(d => d.DeliveryType)
                 .Include(d => d.Desk).ToListAsync();
         }

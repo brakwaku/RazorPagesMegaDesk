@@ -21,8 +21,8 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
 
         public IActionResult OnGet()
         {
-        ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryType");
-        ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialName");
+            ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryType");
+            ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialName");
             //ViewData["DeskId"] = new SelectList(_context.Desk, "DeskId", "DeskId");
             return Page();
         }
