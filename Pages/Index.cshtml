@@ -5,16 +5,19 @@
 }
 
 <div class="text-center home-office">
-    <h1 class="display-4">Welcome to Pi Mega Desk</h1>
+    <h1 class="display-4 text-info">Welcome to Pi Mega Desk</h1>
     <hr>
     <div class="home-office">
-        @* <img src="office.jpg" alt="Home Office"> *@
-        <div class="inner-menu">
-            <ul>
-                <li><a href="">Add Quote</a></li>
-                <li><a href="">View Quote</a></li>
-                <li><a href="">Search Quote</a></li>
-            </ul>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Quick Links
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/DeskQuotes/Create">Add Quote</a>
+                <a class="dropdown-item" href="/DeskQuotes/Index">View Quote</a>
+                <a class="dropdown-item" href="/DeskQuotes/Index">Search Quote</a>
+            </div>
         </div>
+         <img src="office.jpg" alt="Home Office"> 
     </div>
 </div>

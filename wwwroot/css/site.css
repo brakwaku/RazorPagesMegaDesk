@@ -73,8 +73,8 @@ body {
 }
 
 .home-office {
-  background-image: url("/wwwroot/office.jpg");
+  background-image: url("/office.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: #cccccc; */
+  /*background-color: #cccccc;*/ 
 }

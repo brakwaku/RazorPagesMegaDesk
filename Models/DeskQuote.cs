@@ -36,6 +36,8 @@ namespace RazorPagesMegaDesk
         public int DeskId { get; set; } // this is the foreign key that points to Desk.cs
 
         [Display(Name = "Customer Name")]
+        [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string CustomerName { get; set; }
 
         [Display(Name = "Quote Date")]
@@ -54,11 +56,11 @@ namespace RazorPagesMegaDesk
 
         // methods
         // get the material cost based on the material the customer chose
-        //public decimal GetMaterialCost()
+        //public decimal GetMaterialCost(decimal material)
         //{
         //    switch (Desk.SurfaceMaterial)
         //    {
-        //        case DesktopMaterial.Laminate:
+        //        case "Laminate":
         //            return LAMINATE_COST;
 
         //        case DesktopMaterial.Oak:
@@ -127,77 +129,98 @@ namespace RazorPagesMegaDesk
         //}
 
         // based on the delivery type and the size of desk, return different price
-        //public decimal GetShippingCost()
-        //{
-        //    decimal surfaceArea = Desk.Depth * Desk.Width;
+        public decimal GetShippingCost()
+        {
+            decimal surfaceArea = Desk.Depth * Desk.Width;
 
-        //    switch (DeliveryType)
-        //    {
-        //        case Delivery.Rush3Day:
-        //            if (surfaceArea < 1000)
-        //            {
-        //                return _rushOrderPrices[0, 0];
-        //            }
-        //            else if (surfaceArea >= 1000 && surfaceArea <= 2000)
-        //            {
-        //                return _rushOrderPrices[0, 1];
-        //            }
-        //            else
-        //            {
-        //                return _rushOrderPrices[0, 2];
-        //            }
+            if (surfaceArea < 1000)
+            {
+                return DeliveryType.LessThan1000;
+            }
+            else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+            {
+                return DeliveryType.Between1000And2000;
+            }
+            else if (surfaceArea > 2000)
+            {
+                return DeliveryType.GreaterThan2000;
+            }
+            else
+            {
+                return DeliveryType.LessThan1000;
+            }
 
-        //        case Delivery.Rush5Day:
-        //            if (surfaceArea < 1000)
-        //            {
-        //                return _rushOrderPrices[1, 0];
-        //            }
-        //            else if (surfaceArea >= 1000 && surfaceArea <= 2000)
-        //            {
-        //                return _rushOrderPrices[1, 1];
-        //            }
-        //            else
-        //            {
-        //                return _rushOrderPrices[1, 2];
-        //            }
+            //switch (DeliveryType.DeliveryType)
+            //{
+            //    case "3 Day":
+            //        if (surfaceArea < 1000)
+            //        {
+            //            return DeliveryType.LessThan1000;
+            //        }
+            //        else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+            //        {
+            //            return DeliveryType.Between1000And2000;
+            //        }
+            //        else if (surfaceArea > 2000)
+            //        {
+            //            return DeliveryType.GreaterThan2000;
+            //        }
+            //        else
+            //        {
+            //            return DeliveryType.LessThan1000;
+            //        }
 
-        //        case Delivery.Rush7Day:
-        //            if (surfaceArea < 1000)
-        //            {
-        //                return _rushOrderPrices[2, 0];
-        //            }
-        //            else if (surfaceArea >= 1000 && surfaceArea <= 2000)
-        //            {
-        //                return _rushOrderPrices[2, 1];
-        //            }
-        //            else
-        //            {
-        //                return _rushOrderPrices[2, 2];
-        //            }
+            //    case "5 Day":
+            //        if (surfaceArea < 1000)
+            //        {
+            //            return _rushOrderPrices[1, 0];
+            //        }
+            //        else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+            //        {
+            //            return _rushOrderPrices[1, 1];
+            //        }
+            //        else
+            //        {
+            //            return _rushOrderPrices[1, 2];
+            //        }
 
-        //        case Delivery.Normal14Day:
-        //            return 0.00M;
+            //    case "7 Days":
+            //        if (surfaceArea < 1000)
+            //        {
+            //            return _rushOrderPrices[2, 0];
+            //        }
+            //        else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+            //        {
+            //            return _rushOrderPrices[2, 1];
+            //        }
+            //        else
+            //        {
+            //            return _rushOrderPrices[2, 2];
+            //        }
 
-        //        default:
-        //            return 0.00M;
-        //    }
-        //}
+            //    case Delivery.Normal14Day:
+            //        return 0.00M;
+
+            //    default:
+            //        return 0.00M;
+            //}
+        }
 
         // get the total price for the specific quote
         public decimal GetQuotePrice(RazorPagesMegaDesk.Data.RazorPagesMegaDeskContext DataContext)
         {
-            //decimal totalPrice;
-            //decimal surfaceArea = Desk.Depth * Desk.Width;
-            //decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
-            //decimal totalDrawerCost = Desk.NumberOfDrawers * DRAWER_COST;
-            //decimal surfaceMaterialCost = GetMaterialCost();
+            decimal totalPrice;
+            decimal surfaceArea = Desk.Depth * Desk.Width;
+            decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
+            decimal totalDrawerCost = Desk.NumberOfDrawers * DRAWER_COST;
+            decimal surfaceMaterialCost = Desk.SurfaceMaterial.DesktopMaterialPrice;
 
             //getRushOrderPrices(); // grab all the prices from the rushOrderPrices.txt file and save into _rushOrderPrices[,] 
-            //decimal shippingCost = GetShippingCost();
+            decimal shippingCost = GetShippingCost();
 
-            //totalPrice = BASE_DESK_PRICE + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
-            //return totalPrice;
-            return 0;
+            totalPrice = BASE_DESK_PRICE + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
+            return totalPrice;
+            //return 0;
         }
     }
 }
