@@ -30,6 +30,7 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
             }
 
             DeskQuote = await _context.DeskQuote
+                .Include(d => d.Desk.SurfaceMaterial)
                 .Include(d => d.DeliveryType)
                 .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
 
