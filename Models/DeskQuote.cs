@@ -50,43 +50,47 @@ namespace RazorPagesMegaDesk
                 return 0.00M;
             }
         }
+                     
 
-          // based on the delivery type and the size of desk, return different price
-        public decimal GetShippingCost()
+        // get the total price for the specific quote
+        public decimal GetQuotePrice(RazorPagesMegaDesk.Data.RazorPagesMegaDeskContext context)
         {
-            decimal surfaceArea = Desk.Depth * Desk.Width;
+            decimal totalPrice = BASE_DESK_PRICE;
+            decimal surfaceArea = this.Desk.Depth * this.Desk.Width;
+            decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
+            decimal totalDrawerCost = this.Desk.NumberOfDrawers * DRAWER_COST;
+
+            var surfaceMaterialPrices = context.DesktopMaterial
+                .Where(d => d.DesktopMaterialId == this.Desk.DesktopMaterialId)
+                .FirstOrDefault();
+
+            decimal surfaceMaterialCost = surfaceMaterialPrices.DesktopMaterialPrice;
+
+            var shippingPrices = context.Delivery
+                .Where(d => d.DeliveryId == this.DeliveryId).FirstOrDefault();
+
+            // based on the delivery type and the size of desk, return different price
+            decimal shippingCost;
 
             if (surfaceArea < 1000)
             {
-                return DeliveryType.LessThan1000;
+                shippingCost = shippingPrices.LessThan1000;
             }
             else if (surfaceArea >= 1000 && surfaceArea <= 2000)
             {
-                return DeliveryType.Between1000And2000;
+                shippingCost = shippingPrices.Between1000And2000;
             }
             else if (surfaceArea > 2000)
             {
-                return DeliveryType.GreaterThan2000;
+                shippingCost = shippingPrices.GreaterThan2000;
             }
             else
             {
-                return DeliveryType.LessThan1000;
+                shippingCost = shippingPrices.LessThan1000;
             }
-        }
-
-        // get the total price for the specific quote
-        public decimal GetQuotePrice(RazorPagesMegaDesk.Data.RazorPagesMegaDeskContext DataContext)
-        {
-            decimal totalPrice;
-            decimal surfaceArea = this.Desk.Depth * this.Desk.Width;
-            decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
-            decimal totalDrawerCost = Desk.NumberOfDrawers * DRAWER_COST;
-            decimal surfaceMaterialCost = Desk.SurfaceMaterial.DesktopMaterialPrice;
 
 
-            decimal shippingCost = GetShippingCost();
-
-            totalPrice = BASE_DESK_PRICE + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
+            totalPrice = totalPrice + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
             return totalPrice;
         }
     }

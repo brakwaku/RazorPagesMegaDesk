@@ -24,6 +24,7 @@ namespace RazorPagesMegaDesk
         public int DesktopMaterialId { get; set; }
 
         // navigation properties
+        [Display(Name = "Surface Material")]
         public DesktopMaterial SurfaceMaterial { get; set; }
     }
 }
