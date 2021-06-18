@@ -1,31 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {}
+    "C:\\Users\\brakw\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {
+    "C:\\Users\\brakw\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
+        "projectUniqueName": "C:\\Users\\brakw\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
         "projectName": "RazorPagesMegaDesk",
-        "projectPath": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
-        "packagesPath": "C:\\Users\\dyj0183\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dyj0183\\source\\repos\\RazorPagesMegaDesk\\obj\\",
+        "projectPath": "C:\\Users\\brakw\\source\\repos\\RazorPagesMegaDesk\\RazorPagesMegaDesk.csproj",
+        "packagesPath": "C:\\Users\\brakw\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brakw\\source\\repos\\RazorPagesMegaDesk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\dyj0183\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\brakw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "\\\\idrive\\tech\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

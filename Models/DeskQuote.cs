@@ -8,28 +8,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RazorPagesMegaDesk
 {
-    //public enum Delivery
-    //{
-    //    Rush3Day,
-    //    Rush5Day,
-    //    Rush7Day,
-    //    Normal14Day
-    //}
-
     public class DeskQuote
     {
-        // private variable
-        // private int[,] _rushOrderPrices; // two dimentional array
-
         // constants
         private const decimal BASE_DESK_PRICE = 200.00M;
         private const decimal SURFACE_AREA_COST = 1.00M;
         private const decimal DRAWER_COST = 50.00M;
-        //private const decimal OAK_COST = 200.00M;
-        //private const decimal LAMINATE_COST = 100.00M;
-        //private const decimal PINE_COST = 50.00M;
-        //private const decimal ROSEWOOD_COST = 300.00M;
-        //private const decimal VENEER_COST = 125.00M;
 
         // properties
         public int DeskQuoteId { get; set; } // primary key for DeskQuote
@@ -54,31 +38,6 @@ namespace RazorPagesMegaDesk
         [Display(Name = "Delivery Type")]
         public Delivery DeliveryType { get; set; }
 
-        // methods
-        // get the material cost based on the material the customer chose
-        //public decimal GetMaterialCost(decimal material)
-        //{
-        //    switch (Desk.SurfaceMaterial)
-        //    {
-        //        case "Laminate":
-        //            return LAMINATE_COST;
-
-        //        case DesktopMaterial.Oak:
-        //            return OAK_COST;
-
-        //        case DesktopMaterial.Rosewood:
-        //            return ROSEWOOD_COST;
-
-        //        case DesktopMaterial.Veneer:
-        //            return VENEER_COST;
-
-        //        case DesktopMaterial.Pine:
-        //            return PINE_COST;
-        //        default:
-        //            return 0.00M;
-        //    }
-        //}
-
         // get the total cost of surface area, if total is less or equal to 1000, then it is free
         public decimal GetTotalSurfaceAreaCost(decimal surfaceArea)
         {
@@ -91,136 +50,48 @@ namespace RazorPagesMegaDesk
                 return 0.00M;
             }
         }
+                     
 
-        // read from the "rushOrderPrices.txt" and save the data into the _rushOrderPrices array
-        //private void getRushOrderPrices()
-        //{
-        //    // create a 3 by 3 multi dimensional array
-        //    _rushOrderPrices = new int[3, 3];
-
-        //    // define the file path
-        //    const string rushOrderPricesFile = @"rushOrderPrices.txt";
-
-        //    try
-        //    {
-        //        string[] prices = File.ReadAllLines(rushOrderPricesFile);
-
-        //        int i = 0, j = 0;
-
-        //        // there are 9 items in the prices, so it will loop through 9 times
-        //        foreach (string price in prices)
-        //        {
-        //            // i is row, j is column
-        //            _rushOrderPrices[i, j] = int.Parse(price);
-        //            j++;
-
-        //            // if the column is greater 2, move to a new row and start with a new column
-        //            if (j > 2)
-        //            {
-        //                i++;
-        //                j = 0;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e.Message);
-        //    }
-        //}
-
-        // based on the delivery type and the size of desk, return different price
-        public decimal GetShippingCost()
+        // get the total price for the specific quote
+        public decimal GetQuotePrice(RazorPagesMegaDesk.Data.RazorPagesMegaDeskContext context)
         {
-            decimal surfaceArea = Desk.Depth * Desk.Width;
+            decimal totalPrice = BASE_DESK_PRICE;
+            decimal surfaceArea = this.Desk.Depth * this.Desk.Width;
+            decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
+            decimal totalDrawerCost = this.Desk.NumberOfDrawers * DRAWER_COST;
+
+            var surfaceMaterialPrices = context.DesktopMaterial
+                .Where(d => d.DesktopMaterialId == this.Desk.DesktopMaterialId)
+                .FirstOrDefault();
+
+            decimal surfaceMaterialCost = surfaceMaterialPrices.DesktopMaterialPrice;
+
+            var shippingPrices = context.Delivery
+                .Where(d => d.DeliveryId == this.DeliveryId).FirstOrDefault();
+
+            // based on the delivery type and the size of desk, return different price
+            decimal shippingCost;
 
             if (surfaceArea < 1000)
             {
-                return DeliveryType.LessThan1000;
+                shippingCost = shippingPrices.LessThan1000;
             }
             else if (surfaceArea >= 1000 && surfaceArea <= 2000)
             {
-                return DeliveryType.Between1000And2000;
+                shippingCost = shippingPrices.Between1000And2000;
             }
             else if (surfaceArea > 2000)
             {
-                return DeliveryType.GreaterThan2000;
+                shippingCost = shippingPrices.GreaterThan2000;
             }
             else
             {
-                return DeliveryType.LessThan1000;
+                shippingCost = shippingPrices.LessThan1000;
             }
 
-            //switch (DeliveryType.DeliveryType)
-            //{
-            //    case "3 Day":
-            //        if (surfaceArea < 1000)
-            //        {
-            //            return DeliveryType.LessThan1000;
-            //        }
-            //        else if (surfaceArea >= 1000 && surfaceArea <= 2000)
-            //        {
-            //            return DeliveryType.Between1000And2000;
-            //        }
-            //        else if (surfaceArea > 2000)
-            //        {
-            //            return DeliveryType.GreaterThan2000;
-            //        }
-            //        else
-            //        {
-            //            return DeliveryType.LessThan1000;
-            //        }
 
-            //    case "5 Day":
-            //        if (surfaceArea < 1000)
-            //        {
-            //            return _rushOrderPrices[1, 0];
-            //        }
-            //        else if (surfaceArea >= 1000 && surfaceArea <= 2000)
-            //        {
-            //            return _rushOrderPrices[1, 1];
-            //        }
-            //        else
-            //        {
-            //            return _rushOrderPrices[1, 2];
-            //        }
-
-            //    case "7 Days":
-            //        if (surfaceArea < 1000)
-            //        {
-            //            return _rushOrderPrices[2, 0];
-            //        }
-            //        else if (surfaceArea >= 1000 && surfaceArea <= 2000)
-            //        {
-            //            return _rushOrderPrices[2, 1];
-            //        }
-            //        else
-            //        {
-            //            return _rushOrderPrices[2, 2];
-            //        }
-
-            //    case Delivery.Normal14Day:
-            //        return 0.00M;
-
-            //    default:
-            //        return 0.00M;
-            //}
-        }
-
-        // get the total price for the specific quote
-        public decimal GetQuotePrice(RazorPagesMegaDesk.Data.RazorPagesMegaDeskContext DataContext)
-        {
-            decimal totalPrice;
-            decimal surfaceArea = Desk.Depth * Desk.Width;
-            decimal totalSurfaceAreaCost = GetTotalSurfaceAreaCost(surfaceArea);
-            decimal totalDrawerCost = Desk.NumberOfDrawers * DRAWER_COST;
-            decimal surfaceMaterialCost = Desk.SurfaceMaterial.DesktopMaterialPrice;
-
-            //getRushOrderPrices(); // grab all the prices from the rushOrderPrices.txt file and save into _rushOrderPrices[,] 
-            decimal shippingCost = GetShippingCost();
-
-            totalPrice = BASE_DESK_PRICE + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
+            totalPrice = totalPrice + totalSurfaceAreaCost + totalDrawerCost + surfaceMaterialCost + shippingCost;
             return totalPrice;
-            //return 0;
         }
     }
 }
