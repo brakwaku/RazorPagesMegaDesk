@@ -2,16 +2,23 @@
 @model RazorPagesMegaDesk.Pages.DeskQuotes.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Desk Quotes";
 }
 
-<h1>Home Page</h1>
+<h1 class="text-info">Desk Quotes</h1>
+
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn btn-primary" asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<form>
+    <p>
+        Customer Name: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
@@ -41,38 +48,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.DeskQuote) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryType.DeliveryType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desk.Depth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desk.Width)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desk.NumberOfDrawers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desk.SurfaceMaterial.DesktopMaterialName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuoteDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.DeskQuoteId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.DeskQuoteId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.DeskQuote)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryType.DeliveryType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desk.Depth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desk.Width)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desk.NumberOfDrawers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desk.SurfaceMaterial.DesktopMaterialName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuoteDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.DeskQuoteId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.DeskQuoteId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
