@@ -32,6 +32,7 @@ namespace RazorPagesMegaDesk
         [Display(Name = "Total Price")]
         public decimal TotalPrice { get; set; }
 
+
         // navigation properties
         public Desk Desk { get; set; }
 

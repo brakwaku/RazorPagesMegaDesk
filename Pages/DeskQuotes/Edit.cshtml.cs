@@ -23,8 +23,8 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
 
-        //[BindProperty]
-        //public Desk Desk { get; set; }
+        [BindProperty]
+        public Desk Desk { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -42,8 +42,9 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
             {
                 return NotFound();
             }
-            //ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryId");
-            //ViewData["DeskId"] = new SelectList(_context.Desk, "DeskId", "DeskId");
+
+            // after all the Include, assign the DeskQuote.Desk to the Desk property we define above
+            Desk = DeskQuote.Desk;
 
             ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryType");
             ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialName");
@@ -58,6 +59,15 @@ namespace RazorPagesMegaDesk.Pages.DeskQuotes
             {
                 return Page();
             }
+
+            // assign the updated Desk property back to the DeskQuote.Desk
+            DeskQuote.Desk = Desk;
+
+            // update Desk property into the database
+            _context.Attach(Desk).State = EntityState.Modified;
+
+            // update the total price before saving into the DeskQuote
+            DeskQuote.TotalPrice = DeskQuote.GetQuotePrice(_context);
 
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
